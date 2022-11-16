@@ -99,10 +99,6 @@ void exitGame() {
   exit();
 }
 
-void mouseClicked() {
-  
-}
-
 void switchSceneByPressedMouse(int x, int y, int buttonWidth, int buttonHeight, MenuPage goToPage) {
   if (mousePressed) {
     
