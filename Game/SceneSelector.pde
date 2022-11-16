@@ -2,7 +2,7 @@ enum Scene {
   MENU, GAME
 }
 
-Scene currentScene = Scene.MENU;
+public Scene currentScene = Scene.MENU;
 
 /*
    Проверям с помощью переменной currentScene на какой сцене находимся и вызываем нужную нам функцию

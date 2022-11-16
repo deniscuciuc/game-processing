@@ -1,11 +1,10 @@
 
 
 void settings() {
-  size(1920, 980);
+  size(1440, 760);
 }
 
 void setup() {
-  
 }
 
 /*
@@ -13,5 +12,6 @@ void setup() {
    Вызывается функция selectScene() чтобы постоянно трекерить на какой сцене сейчас находится игрок
 */
 void draw() {
+  background(255);
   selectScene();
 }
