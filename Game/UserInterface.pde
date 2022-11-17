@@ -18,6 +18,3 @@ void drawScore() {
 void drawTime() {
   
 }
-
-void drawNumberOfArrows() {
-}
