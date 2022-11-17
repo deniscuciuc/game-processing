@@ -1,3 +1,4 @@
+
 private ArrayList<DroppingItem> droppingItems = new ArrayList<>();
 private Player firstPlayer;
 private Player secondPlayer;
@@ -29,9 +30,6 @@ void keyPressed() {
   
 }
 
-/*
-    Функция рисует наших игроков
-*/
 void drawPlayers() {
   firstPlayer.drawPlayer();
   secondPlayer.drawPlayer();

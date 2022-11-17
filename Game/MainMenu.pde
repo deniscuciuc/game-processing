@@ -1,9 +1,4 @@
 
-
-/*
-   Рисует самую первую страницу меню.
-   Отсюда мы переходим на другие страницы и можем выйти из игры
-*/
 void drawMainPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);

@@ -1,3 +1,4 @@
+
 private Barrier[] bariers;
 
 

@@ -1,3 +1,4 @@
+
 enum MenuPage {
   MAIN, PREPLAY, RECORDS, HELP, EXIT_GAME
 }
