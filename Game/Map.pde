@@ -27,7 +27,6 @@ void initBarriers() {
   };
 }
 
-/* Нарисует background */
 void drawBackground() {
   
 }

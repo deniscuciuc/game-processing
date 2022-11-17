@@ -1,10 +1,17 @@
-
 /*
    Рисует предигровую страницу.
    Здесь оба игрока по очереди вбивают свое имя для своих персонажей.
    Имена будут хранится в файле и будут вытаскивать при входе в игру чтобы сохранять очки каждого игрока.
    Если игрок напишет уже существующий ник то тогда будет использовать тот ник и не будет создаваться еще один идентичный
 */
+
+private StringBuilder typingStrBuilder = new StringBuilder("");
+private final int MAX_CHARACTERS_IN_NAME = 12;
+private String selectPlayerName = "Type first player name";
+private String firstPlayerName;
+private String secondPlayerName;
+
+
 void drawPreplayPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);
