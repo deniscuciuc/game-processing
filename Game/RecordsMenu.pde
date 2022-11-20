@@ -9,5 +9,5 @@ void drawRecordsPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);
   text("RECORDS", buttonMiddleXPos + 30, 130);
-  drawButton(25, 25, "GO BACK", MenuPage.MAIN);
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN);
 }

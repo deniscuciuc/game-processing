@@ -1,7 +1,7 @@
 
 private ArrayList<DroppingItem> droppingItems = new ArrayList<>();
-private Player firstPlayer;
-private Player secondPlayer;
+public Player firstPlayer;
+public Player secondPlayer;
 
 /*
    Функция создает двух игроков и устанавливает им имя которое будет заданно в PREPLAY меню

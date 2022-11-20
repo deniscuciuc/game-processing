@@ -7,11 +7,11 @@ void drawUI() {
   
 }
 
-void drawHp() {
+void drawHp(int playerHp) {
   
 }
 
-void drawScore() {
+void drawScore(int playerScore) {
   
 }
 

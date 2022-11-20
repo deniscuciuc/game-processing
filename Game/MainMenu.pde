@@ -3,13 +3,13 @@ void drawMainPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);
   text("MAIN MENU", buttonMiddleXPos + 26, 130);
-  drawButton(buttonMiddleXPos, 175, "PLAY", MenuPage.PREPLAY);
-  drawButton(buttonMiddleXPos, 250, "RECORDS", MenuPage.RECORDS);
-  drawButton(buttonMiddleXPos, 325, "HELP", MenuPage.HELP);
-  drawButton(buttonMiddleXPos, 400, "EXIT", MenuPage.EXIT_GAME);
+  drawMenuNavigationButton(buttonMiddleXPos, 175, "PLAY", MenuPage.PREPLAY);
+  drawMenuNavigationButton(buttonMiddleXPos, 250, "RECORDS", MenuPage.RECORDS);
+  drawMenuNavigationButton(buttonMiddleXPos, 325, "HELP", MenuPage.HELP);
+  drawMenuNavigationButton(buttonMiddleXPos, 400, "EXIT", MenuPage.EXIT_GAME);
 }
 
-void drawButton(int x, int y, String text, MenuPage goToPage) {
+void drawMenuNavigationButton(int x, int y, String text, MenuPage goToPage) {
   final int BUTTON_WIDTH = 200;
   final int BUTTON_HEIGHT = 50;
   

@@ -17,13 +17,14 @@ void drawPreplayPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);
   text("PREPLAY", buttonMiddleXPos + 30, 130);
-  drawButton(25, 25, "GO BACK", MenuPage.MAIN);
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN);
   
   if (firstPlayerName.equals("") || secondPlayerName.equals("")) {
     drawTextBoxAndCreatePlayersWithNames(buttonMiddleXPos - 100, 300);
   } else {
     createPlayers(firstPlayerName, secondPlayerName);
-    text(firstPlayerName + " ПРОТИВ " + secondPlayerName, buttonMiddleXPos, 300);
+    text(firstPlayerName + " VS " + secondPlayerName, buttonMiddleXPos, 300);
+    drawStartGameButton(buttonMiddleXPos + 15, 350);
   }
 }
 
@@ -40,9 +41,9 @@ void drawTextBoxAndCreatePlayersWithNames(int x, int y) {
   textSize(TEXT_SIZE);
   
   if (firstPlayerName.isEmpty()) {
-    selectPlayerName = "Введите имя первого игрока";
+    selectPlayerName = "Enter first player name";
   } else {
-    selectPlayerName = "Введите имя второго игрока";
+    selectPlayerName = "Enter second player name";
   }
   
   text(selectPlayerName, x, y - 10);
@@ -68,5 +69,19 @@ void confirmPlayerNameByPressingButton(int x, int y, int buttonWidth, int button
     if (firstPlayerName.equals("")) firstPlayerName = typingStrBuilder.toString();
     else secondPlayerName = typingStrBuilder.toString();
     typingStrBuilder = new StringBuilder("");
+  }
+}
+
+void drawStartGameButton(int x, int y) {
+  strokeWeight(3);
+  fill(0);
+  rect(x, y, 100, 50);
+  
+  fill(255);
+  textSize(21);
+  text("START", x + 25, y + 35);
+  
+  if (buttonWasPressed(x, y, 100, 50)) {
+    currentScene = Scene.GAME;
   }
 }
