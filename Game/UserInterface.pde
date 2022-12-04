@@ -4,14 +4,16 @@
    Количество стрел у каждого игрока, их счет, хп, время игры
 */
 void drawUI() {
+  drawHp();
+  drawScore();
+  drawTime();
+}
+
+void drawHp() {
   
 }
 
-void drawHp(int playerHp) {
-  
-}
-
-void drawScore(int playerScore) {
+void drawScore() {
   
 }
 

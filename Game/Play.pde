@@ -1,15 +1,13 @@
 
 private ArrayList<DroppingItem> droppingItems = new ArrayList<>();
 public Player firstPlayer;
-public Player secondPlayer;
 
 /*
    Функция создает двух игроков и устанавливает им имя которое будет заданно в PREPLAY меню
    Имя игрока будет расположенно над его персонажом а так же использоваться в таблице рекордов
 */
-void createPlayers(String firstPlayerName, String secondPlayerName) {
+void createPlayer(String firstPlayerName) {
   firstPlayer = new Player(firstPlayerName);
-  secondPlayer = new Player(secondPlayerName);
 }
 
 /*
@@ -32,5 +30,4 @@ void keyPressed() {
 
 void drawPlayers() {
   firstPlayer.drawPlayer();
-  secondPlayer.drawPlayer();
 }

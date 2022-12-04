@@ -1,7 +1,6 @@
 
 /*
    Рисует предигровую страницу.
-   Здесь оба игрока по очереди вбивают свое имя для своих персонажей.
    Имена будут хранится в файле и будут вытаскивать при входе в игру чтобы сохранять очки каждого игрока.
    Если игрок напишет уже существующий ник то тогда будет использовать тот ник и не будет создаваться еще один идентичный
 */
@@ -9,8 +8,7 @@ private StringBuilder typingStrBuilder = new StringBuilder("");
 private final int MAX_CHARACTERS_IN_NAME = 16;
 
 private String selectPlayerName = "";
-private String firstPlayerName = "";
-private String secondPlayerName = "";
+private String playerName = "";
 
 
 void drawPreplayPage() {
@@ -19,11 +17,11 @@ void drawPreplayPage() {
   text("PREPLAY", buttonMiddleXPos + 30, 130);
   drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN);
   
-  if (firstPlayerName.equals("") || secondPlayerName.equals("")) {
+  if (playerName.equals("")) {
     drawTextBoxAndCreatePlayersWithNames(buttonMiddleXPos - 100, 300);
   } else {
-    createPlayers(firstPlayerName, secondPlayerName);
-    text(firstPlayerName + " VS " + secondPlayerName, buttonMiddleXPos, 300);
+    createPlayer(playerName);
+    
     drawStartGameButton(buttonMiddleXPos + 15, 350);
   }
 }
@@ -40,10 +38,8 @@ void drawTextBoxAndCreatePlayersWithNames(int x, int y) {
   fill(0);
   textSize(TEXT_SIZE);
   
-  if (firstPlayerName.isEmpty()) {
-    selectPlayerName = "Enter first player name";
-  } else {
-    selectPlayerName = "Enter second player name";
+  if (playerName.isEmpty()) {
+    selectPlayerName = "Enter player name";
   }
   
   text(selectPlayerName, x, y - 10);
@@ -66,8 +62,11 @@ void drawConfirmButton(int x, int y, int textSize) {
 
 void confirmPlayerNameByPressingButton(int x, int y, int buttonWidth, int buttonHeight) {
   if (buttonWasPressed(x, y, buttonWidth, buttonHeight)) {
-    if (firstPlayerName.equals("")) firstPlayerName = typingStrBuilder.toString();
-    else secondPlayerName = typingStrBuilder.toString();
+    
+    if (playerName.equals("")) {
+      playerName = typingStrBuilder.toString();
+    }
+    
     typingStrBuilder = new StringBuilder("");
   }
 }

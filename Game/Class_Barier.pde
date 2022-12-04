@@ -3,7 +3,7 @@ public class Barrier {
   private int y;
   private int barrierWidth;
   private int barrierHeight;
-  private PImage barrierTexture;
+  private PImage texture;
   
   public Barrier(int x, int y, int barrierWidth, int barrierHeight) {
     this.x = x;
@@ -12,12 +12,12 @@ public class Barrier {
     this.barrierHeight = barrierHeight;
   }
   
-  public Barrier(int x, int y, int barrierWidth, int barrierHeight, PImage barrierTexture) {
+  public Barrier(int x, int y, int barrierWidth, int barrierHeight, PImage texture) {
     this.x = x;
     this.y = y;
     this.barrierWidth = barrierWidth;
     this.barrierHeight = barrierHeight;
-    this.barrierTexture = barrierTexture;
+    this.texture = texture;
   }
   
   /* Рисует барьер. На прямоугольник накладывается картинка */
@@ -25,10 +25,5 @@ public class Barrier {
     noStroke();
     fill(0);
     rect(this.x, this.y, this.barrierWidth, this.barrierHeight);
-  }
-  
-  /* Функция проверит если игрок касается или находится на барьере */
-  public boolean isPlayerTouchesBarrier(Player player) {
-    return false;
   }
 }

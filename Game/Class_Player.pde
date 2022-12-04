@@ -4,9 +4,20 @@ public class Player {
   private String name;
   private int score;
   private int hp;
+  private boolean isAlive;
+  private PImage sprite;
   
   public Player(String name) {
     this.name = name;
+    this.isAlive = true;
+    this.score = 0;
+    this.hp = 5;
+  }
+  
+  public Player(String name, PImage sprite) {
+    this.name = name;
+    this.sprite = sprite;
+    this.isAlive = true;
     this.score = 0;
     this.hp = 5;
   }
@@ -27,20 +38,25 @@ public class Player {
     return this.hp;
   }
   
-  /* Реализуем рисунок нашего игрока в статичном ввиде */
+  /* Реализуем рисунок нашего игрока в статичном ввиде. Метод будет в любом случае вызываться */
   public void drawPlayer() {
+    
   }
   
-  /* Прыжок игрока и анимация во время прыжка */
-  public void jump() {
+  public void moveDown() {
+    
   }
   
-  /* Движение игрока в лево и анимация */
+  public void moveUp() {
+    
+  }
+  
   public void moveLeft() {
   }
   
-  /* Движение игрока в право и анимация */
+  
   public void moveRight() {
+    
   }
   
   /* Игрок получает урон. У него отбирается хп и анимация */
@@ -49,9 +65,11 @@ public class Player {
   
   /* Игрок атакует */
   public void attack() {
+    
   }
   
   /* Игрок умирает */
   public void die() {
+    this.isAlive = false;
   }
 }
