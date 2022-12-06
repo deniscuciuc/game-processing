@@ -7,6 +7,8 @@ public class Player {
   private boolean isAlive;
   private PImage sprite;
   
+  private final int SPEED = 15;
+  
   public Player(String name) {
     this.name = name;
     this.isAlive = true;
@@ -20,6 +22,8 @@ public class Player {
     this.isAlive = true;
     this.score = 0;
     this.hp = 5;
+    this.x = 10;
+    this.y = 200;
   }
   
   public String getName() {
@@ -38,37 +42,35 @@ public class Player {
     return this.hp;
   }
   
-  /* Реализуем рисунок нашего игрока в статичном ввиде. Метод будет в любом случае вызываться */
   public void drawPlayer() {
-    
+    image(this.sprite, x, y);
   }
   
   public void moveDown() {
-    
+    this.y += SPEED;
   }
   
   public void moveUp() {
-    
+    this.y -= SPEED;
   }
   
   public void moveLeft() {
+    this.x -= SPEED;
   }
   
   
   public void moveRight() {
-    
+    this.x += SPEED;
   }
   
-  /* Игрок получает урон. У него отбирается хп и анимация */
   public void getHit() {
+    hp -= 1;
   }
   
-  /* Игрок атакует */
   public void attack() {
-    
+    println("Attack");
   }
   
-  /* Игрок умирает */
   public void die() {
     this.isAlive = false;
   }

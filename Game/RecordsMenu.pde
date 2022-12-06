@@ -1,13 +1,31 @@
 
-/*
-   Рисует страницу рекордов.
-   Здесь мы используем все очки что сохраняются после завершения матча в файл а оттуда мы уже добавляем в список игроков и вывводим их максимальный рекорд.
-   Чтобы это реализовать достаточно сравнить после завершения матча счет игроков и сравнить старый рекорд если есть. Таким образом заменить если нужно.
-   После того как определен рекорд каждого игрока то тут уже сортируем по убыванию чтобы показать у кого из игроков самый высокий рекорд
-*/
+
 void drawRecordsPage() {
+  setRecordsBackground();
+
   final int buttonMiddleXPos = width / 2 - 100;
+  fill(255);
   textSize(26);
-  text("RECORDS", buttonMiddleXPos + 30, 130);
-  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN);
+  text("TOP 10 PLAYERS", buttonMiddleXPos, 90);
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, color(0), color(255));
+   
+  ArrayList<Player> players = loadPlayersRecords();
+  textSize(23);
+  int x = 600;
+  int y = 170;
+  fill(255);
+  for (int i = 0, n = players.size(); i < n; i++) {
+    Player player = players.get(i);
+
+    if (i >= 10) continue;
+
+    text(player.getName(), x, y + i * 20);
+    text(player.getScore(), x + 200, y + i * 20);
+    y += 30;
+  }
+}
+
+void setRecordsBackground() {
+  PImage bg = loadImage("backgroundRecords.jpg");
+  background(bg);
 }

@@ -5,10 +5,7 @@ enum MenuPage {
 
 private MenuPage currentMenuPage = MenuPage.MAIN;
 
-/*
-   Данная функция отвечает за меню.
-   В зависимости от currentMenuPage мы рисуем нужную нашу страницу меню
-*/
+
 void loadMenu() {
   switch(currentMenuPage) {
     case MAIN:

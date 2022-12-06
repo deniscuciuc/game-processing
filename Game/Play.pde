@@ -1,33 +1,35 @@
+ArrayList<DroppingItem> droppingItems = new ArrayList<>();
+Player player;
 
-private ArrayList<DroppingItem> droppingItems = new ArrayList<>();
-public Player firstPlayer;
 
-/*
-   Функция создает двух игроков и устанавливает им имя которое будет заданно в PREPLAY меню
-   Имя игрока будет расположенно над его персонажом а так же использоваться в таблице рекордов
-*/
-void createPlayer(String firstPlayerName) {
-  firstPlayer = new Player(firstPlayerName);
+void createPlayer(String playerName) {
+  player = new Player(playerName, loadImage("rocket.png"));
 }
 
-/*
-   Функция отчает за игровую часть.
-   Здесь мы вызываем все функции что нужны нам чтобы определить логику игрового процесса
-*/
 void playGame() {
   drawMap();
   drawUI();
-  drawPlayers();
+  player.drawPlayer();
 }
 
-/*
-   Тут будет реализована логика передвижения обоих персонажей.
-   Остается только проверять по клавишам ведь у каждого персонажа есть своя функция для вызова и остальная логика будет там
-*/
 void keyPressed() {
-  
-}
+  if (keyCode == LEFT) {
+    player.moveLeft();
+  } else if (keyCode == RIGHT) {
+    player.moveRight();
+  }
 
-void drawPlayers() {
-  firstPlayer.drawPlayer();
+  if (keyCode == UP) {
+    player.moveUp();
+  } else if (keyCode == DOWN) {
+    player.moveDown();
+  }
+
+  if (keyCode == TAB) {
+    player.attack();
+  }
+
+  if (keyCode == BACKSPACE) {
+    player.getHit();
+  }
 }

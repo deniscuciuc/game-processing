@@ -1,28 +1,35 @@
-
-/*
-   Рисует предигровую страницу.
-   Имена будут хранится в файле и будут вытаскивать при входе в игру чтобы сохранять очки каждого игрока.
-   Если игрок напишет уже существующий ник то тогда будет использовать тот ник и не будет создаваться еще один идентичный
-*/
-private StringBuilder typingStrBuilder = new StringBuilder("");
-private final int MAX_CHARACTERS_IN_NAME = 16;
-
-private String selectPlayerName = "";
-private String playerName = "";
-
+StringBuilder typingStrBuilder = new StringBuilder("");
+final int MAX_CHARACTERS_IN_NAME = 10;
+String selectPlayerName = "";
+String playerName = "";
 
 void drawPreplayPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   textSize(26);
   text("PREPLAY", buttonMiddleXPos + 30, 130);
-  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN);
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, color(0), color(255));
   
   if (playerName.equals("")) {
     drawTextBoxAndCreatePlayersWithNames(buttonMiddleXPos - 100, 300);
   } else {
     createPlayer(playerName);
+    currentScene = Scene.GAME;
+  }
+}
+
+void keyReleased() {
+  if (currentMenuPage == MenuPage.PREPLAY) {
+    if (keyCode == BACKSPACE) {
+      if (typingStrBuilder.length() == 0) return;
     
-    drawStartGameButton(buttonMiddleXPos + 15, 350);
+    typingStrBuilder.deleteCharAt(typingStrBuilder.length() - 1);
+    return;
+    }
+    if (typingStrBuilder.length() >= MAX_CHARACTERS_IN_NAME) return;
+    String strKey = "" + key;
+    if (strKey.matches("[a-zA-Z]+\\.?")) {
+      typingStrBuilder.append(key);
+    }
   }
 }
 
@@ -68,19 +75,5 @@ void confirmPlayerNameByPressingButton(int x, int y, int buttonWidth, int button
     }
     
     typingStrBuilder = new StringBuilder("");
-  }
-}
-
-void drawStartGameButton(int x, int y) {
-  strokeWeight(3);
-  fill(0);
-  rect(x, y, 100, 50);
-  
-  fill(255);
-  textSize(21);
-  text("START", x + 25, y + 35);
-  
-  if (buttonWasPressed(x, y, 100, 50)) {
-    currentScene = Scene.GAME;
   }
 }
