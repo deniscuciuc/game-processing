@@ -1,3 +1,16 @@
+void drawMenuNavigationButton(int x, int y, String text, MenuPage goToPage,
+                              int buttonWidth, int buttonHeight, color buttonFill,
+                              color textFill, int textSize, int leftGapX) {
+  noStroke();
+  fill(buttonFill);
+  rect(x, y, buttonWidth, buttonHeight);
+  
+  fill(textFill);
+  textSize(textSize);
+  text(text, x + leftGapX, y + buttonHeight / 4 + textSize);
+  
+  switchMenuPageByPressedButton(x, y, buttonWidth, buttonHeight, goToPage);
+}
 
 boolean buttonWasPressed(int x, int y, int buttonWidth, int buttonHeight) {
   return mousePressed && mouseButton == LEFT && mouseX >= x

@@ -1,26 +1,19 @@
+color mainButtonsColor = color(102, 186, 186);
+color mainTextColor = color(57, 89, 146);
+
 
 void drawMainPage() {
-  final int buttonMiddleXPos = width / 2 - 100;
-  textSize(26);
-  fill(0);
-  text("MAIN MENU", buttonMiddleXPos + 26, 130);
-  drawMenuNavigationButton(buttonMiddleXPos, 175, "PLAY", MenuPage.PREPLAY, 200, 70, color(0), color(255));
-  drawMenuNavigationButton(buttonMiddleXPos, 250, "RECORDS", MenuPage.RECORDS, 200, 70, color(0), color(255));
-  drawMenuNavigationButton(buttonMiddleXPos, 325, "HELP", MenuPage.HELP, 200, 70, color(0), color(255));
-  drawMenuNavigationButton(buttonMiddleXPos, 400, "EXIT", MenuPage.EXIT_GAME, 200, 70, color(0), color(255));
+  final int buttonMiddleXPos = width / 2 - 120;
+  setMainMenuBackground();
+  drawMenuNavigationButton(buttonMiddleXPos, 200, "PLAY", MenuPage.PREPLAY, 270, 70, mainButtonsColor, mainTextColor, 32, 80);
+  drawMenuNavigationButton(buttonMiddleXPos, 300, "RECORDS", MenuPage.RECORDS, 270, 70, mainButtonsColor, mainTextColor, 32, 45);
+  drawMenuNavigationButton(buttonMiddleXPos, 400, "HELP", MenuPage.HELP, 270, 70, mainButtonsColor, mainTextColor, 32, 80);
+  drawMenuNavigationButton(buttonMiddleXPos, 500, "EXIT", MenuPage.EXIT_GAME, 270, 70, mainButtonsColor, mainTextColor, 32, 80);
 }
 
-void drawMenuNavigationButton(int x, int y, String text, MenuPage goToPage, int buttonWidth, int buttonHeight, color buttonFill, color textFill) {
-  strokeWeight(3);
-  fill(buttonFill);
-  rect(x, y, buttonWidth, buttonHeight);
-  
-  final int TEXT_SIZE = 21;
-  fill(textFill);
-  textSize(TEXT_SIZE);
-  text(text, x + TEXT_SIZE, y + buttonHeight / 4 + TEXT_SIZE);
-  
-  switchMenuPageByPressedButton(x, y, buttonWidth, buttonHeight, goToPage);
+void setMainMenuBackground() {
+  PImage background = loadImage("mainMenuBackground.png");
+  background(background);
 }
 
 void switchMenuPageByPressedButton(int x, int y, int buttonWidth, int buttonHeight, MenuPage goToPage) {

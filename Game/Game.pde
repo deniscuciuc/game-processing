@@ -5,7 +5,7 @@ void settings() {
 }
 
 void setup() {
-  
+  frameRate(120);
 }
 
 void draw() {

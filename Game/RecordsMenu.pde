@@ -1,4 +1,4 @@
-
+color goBackRecordsButtonColor = color(169, 129, 200);
 
 void drawRecordsPage() {
   setRecordsBackground();
@@ -6,13 +6,17 @@ void drawRecordsPage() {
   final int buttonMiddleXPos = width / 2 - 100;
   fill(255);
   textSize(26);
-  text("TOP 10 PLAYERS", buttonMiddleXPos, 90);
-  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, color(0), color(255));
-   
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, goBackRecordsButtonColor, color(255), 30, 10);
+  displayTop10Players();
+}
+
+void displayTop10Players() {
   ArrayList<Player> players = loadPlayersRecords();
-  textSize(23);
-  int x = 600;
-  int y = 170;
+
+  int x = 420;
+  int y = 275;
+
+  textSize(27);
   fill(255);
   for (int i = 0, n = players.size(); i < n; i++) {
     Player player = players.get(i);
@@ -20,8 +24,8 @@ void drawRecordsPage() {
     if (i >= 10) continue;
 
     text(player.getName(), x, y + i * 20);
-    text(player.getScore(), x + 200, y + i * 20);
-    y += 30;
+    text(player.getScore(), x + 515, y + i * 20);
+    y += 27;
   }
 }
 

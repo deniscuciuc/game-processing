@@ -22,8 +22,8 @@ public class Player {
     this.isAlive = true;
     this.score = 0;
     this.hp = 5;
-    this.x = 10;
-    this.y = 200;
+    this.x = width / 2 - sprite.width / 2;
+    this.y = height - 200;
   }
   
   public String getName() {
