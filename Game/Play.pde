@@ -14,9 +14,9 @@ void createPlayer(String playerName) {
 void playGame() {
   drawMap();
   drawUI();
+  drawDroppingItems();
   player.drawPlayer();
   generateDroppingItems();
-  drawDroppingItems();
   changeCurrentLevelByTime();
 }
 
@@ -45,8 +45,13 @@ void changeCurrentLevelByTime() {
 }
 
 void drawDroppingItems() {
-  for (DroppingItem droppingItem : droppingItems) {
-    droppingItem.drawMovingDroppingItem();
+  for (int i = 0; i < droppingItems.size(); i++) {
+    droppingItems.get(i).drawMovingDroppingItem();
+
+    if (droppingItems.get(i).playerWasHit(player)) {
+      player.getHit();
+      droppingItems.remove(i);
+    }
   }
 }
 

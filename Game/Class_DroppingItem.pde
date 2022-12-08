@@ -17,6 +17,12 @@ public class DroppingItem {
     image(texture, this.x, this.y);
     y += speed;
   }
+
+  public boolean playerWasHit(Player player) {
+    boolean isHitByXPos = this.x >= player.getX() && this.x <= player.getX() + player.getSprite().width;
+    boolean isHitByYpos = this.y >= player.getY();
+    return isHitByXPos && isHitByYpos;
+  }
   
   private void generateRandomXPosition() {
     do {

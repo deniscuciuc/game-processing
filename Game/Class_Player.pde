@@ -25,6 +25,14 @@ public class Player {
     this.x = width / 2 - sprite.width / 2;
     this.y = height - 200;
   }
+
+  public int getX() {
+    return this.x;
+  }
+
+  public int getY() {
+    return this.y;
+  }
   
   public String getName() {
     return this.name;
@@ -40,6 +48,10 @@ public class Player {
   
   public int getHp() {
     return this.hp;
+  }
+
+  public PImage getSprite() {
+    return this.sprite;
   }
   
   public void drawPlayer() {
