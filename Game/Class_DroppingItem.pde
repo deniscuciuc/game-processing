@@ -23,6 +23,10 @@ public class DroppingItem {
     boolean isHitByYpos = this.y >= player.getY();
     return isHitByXPos && isHitByYpos;
   }
+
+  public boolean isAwayFromWindow() {
+    return this.y >= height + 15;
+  }
   
   private void generateRandomXPosition() {
     do {

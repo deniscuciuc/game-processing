@@ -80,7 +80,7 @@ public class Player {
   }
   
   public void attack() {
-    println("Attack");
+    blasters.add(new Blaster());
   }
   
   public void die() {

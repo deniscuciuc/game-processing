@@ -4,10 +4,10 @@ String selectPlayerName = "";
 String playerName = "";
 
 void drawPreplayPage() {
+  setPrePlayBackground();
   final int buttonMiddleXPos = width / 2 - 100;
-  textSize(26);
-  text("PREPLAY", buttonMiddleXPos + 30, 130);
-  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, color(0), color(255), 27, 20);
+  textSize(40);
+  drawMenuNavigationButton(25, 25, "GO BACK", MenuPage.MAIN, 200, 70, color(199,21,133), color(255), 27, 20);
   
   if (playerName.equals("")) {
     drawTextBoxAndCreatePlayersWithNames(buttonMiddleXPos - 100, 300);
@@ -42,7 +42,7 @@ void drawTextBoxAndCreatePlayersWithNames(int x, int y) {
   rect(x, y, BUTTON_WIDTH, BUTTON_HEIGHT);
   
   final int TEXT_SIZE = 21;
-  fill(0);
+  fill(255);
   textSize(TEXT_SIZE);
   
   if (playerName.isEmpty()) {
@@ -59,12 +59,15 @@ void drawTextBoxAndCreatePlayersWithNames(int x, int y) {
 
 void drawConfirmButton(int x, int y, int textSize) {
   strokeWeight(3);
-  fill(0);
-  rect(x, y, 100, 50);
+  fill(199,21,133);
+  rect(x, y, 150, 50);
   
   fill(255);
   textSize(textSize);
   text("CONFIRM", x + 10, y + 35);
+  noFill();
+  stroke(199,21,133);
+  rect(x-330,y,480,50);
 }
 
 void confirmPlayerNameByPressingButton(int x, int y, int buttonWidth, int buttonHeight) {
@@ -76,4 +79,9 @@ void confirmPlayerNameByPressingButton(int x, int y, int buttonWidth, int button
     
     typingStrBuilder = new StringBuilder("");
   }
+}
+
+void setPrePlayBackground() {
+  PImage background = loadImage("backgroundPreplay.jpg");
+  image(background, 0, 0, width, height);
 }

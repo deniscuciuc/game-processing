@@ -1,4 +1,5 @@
 ArrayList<DroppingItem> droppingItems = new ArrayList<>();
+ArrayList<Blaster> blasters = new ArrayList<>();
 Player player;
 
 PImage cometTexture;
@@ -14,7 +15,8 @@ void createPlayer(String playerName) {
 void playGame() {
   drawMap();
   drawUI();
-  drawDroppingItems();
+  if (droppingItems.size() > 0) drawDroppingItems();
+  if (blasters.size() > 0) drawBlasters();
   player.drawPlayer();
   generateDroppingItems();
   changeCurrentLevelByTime();
@@ -28,7 +30,16 @@ void generateDroppingItems() {
 }
 
 void selectRandomCometTexture() {
-  cometTexture = loadImage("cometRed.png");
+  int randomCometNumber = (int) random(1, 3);
+  
+  switch (randomCometNumber) {
+    case 1:
+        cometTexture = loadImage("cometRed.png");
+        break;
+    case 2:
+        cometTexture = loadImage("cometBlue.png");
+        break;    
+  }
 }
 
 void changeCurrentLevelByTime() {
@@ -48,9 +59,23 @@ void drawDroppingItems() {
   for (int i = 0; i < droppingItems.size(); i++) {
     droppingItems.get(i).drawMovingDroppingItem();
 
+    if (droppingItems.get(i).isAwayFromWindow()) {
+      droppingItems.remove(i);
+    }
+
     if (droppingItems.get(i).playerWasHit(player)) {
       player.getHit();
       droppingItems.remove(i);
+    }
+  }
+}
+
+void drawBlasters() {
+  for (int i = 0; i < blasters.size(); i++) {
+    blasters.get(i).drawBlaster();
+
+    if (blasters.get(i).isAwayFromWindow()) {
+      blasters.remove(i);
     }
   }
 }
